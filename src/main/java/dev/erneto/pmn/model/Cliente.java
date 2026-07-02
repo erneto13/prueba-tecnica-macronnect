@@ -17,8 +17,6 @@ public class Cliente {
     @Column(nullable = false, length = 100)
     private String nombre;
 
-    @Email
-    @NotBlank
     @Column(unique = true)
     private String email;
 
