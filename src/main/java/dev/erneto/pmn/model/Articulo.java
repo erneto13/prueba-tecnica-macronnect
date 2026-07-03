@@ -11,6 +11,9 @@ import java.math.BigDecimal;
 @Data
 @Entity
 @Table(name = "articulo")
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Articulo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,9 +32,10 @@ public class Articulo {
     private BigDecimal precio;
 
     @Column(nullable = false)
-    private int stock;
+    private Integer stock;
 
     @Column(nullable = false)
-    private Boolean activo;
+    @Builder.Default
+    private Boolean activo = true;
 }
 
