@@ -9,14 +9,14 @@ Nivel: Junior · Modalidad: proyecto a resolver en casa
    Tienes que construir el backend de un sistema simple de ventas. El sistema debe permitir administrar clientes y
    artículos, y registrar ventas que asocian un cliente con uno o más artículos, cada uno con su cantidad.
 3. Requisitos funcionales
-   3.1 Clientes
-    Alta, baja (lógica o física), modificación y consulta de clientes.
-    Consulta de un cliente por id y listado general con paginación (obligatoria, ver sección 4).
+   3.1 Clientes ✅
+    Alta, baja (lógica o física), modificación y consulta de clientes. ✅
+    Consulta de un cliente por id y listado general con paginación (obligatoria, ver sección 4). ✅
    3.2 Artículos
-    Alta, baja, modificación y consulta de artículos.
-    Cada artículo tiene un precio y un stock disponible.
-    El código del artículo es único: no se puede repetir entre artículos.
-    Listado general de artículos con paginación (obligatoria).
+    Alta, baja, modificación y consulta de artículos. 
+    Cada artículo tiene un precio y un stock disponible. ✅
+    El código del artículo es único: no se puede repetir entre artículos. ✅
+    Listado general de artículos con paginación (obligatoria). ✅
    3.3 Ventas
     Registrar una venta asociada a un cliente existente, con una o más líneas de detalle (artículo + cantidad).
     Cada venta debe generar un folio incremental, único, que no se pueda repetir.
@@ -54,30 +54,30 @@ subtotal
 Una venta tiene una o más líneas de detalle.
 
 3.4 Autenticación
- La API debe estar protegida con autenticación basada en JWT.
+ La API debe estar protegida con autenticación basada en JWT. ✅
  Debe existir un endpoint de login (usuario y contraseña) que, si las credenciales son válidas, devuelva un
-token JWT.
+token JWT. ✅
  Los endpoints de clientes, artículos y ventas solo deben ser accesibles con un token válido en el header de la
-petición.
+petición. ✅
  El usuario para autenticarse puede ser simple (por ejemplo, un usuario fijo o una tabla mínima de usuarios);
-no hace falta un CRUD de usuarios.
+no hace falta un CRUD de usuarios. ✅
 4. Requisitos técnicos
     Lenguaje: Java 8.
-    Framework: Spring Boot (Web, Data JPA, Validation).
-    API: REST, con respuestas en JSON y códigos HTTP apropiados.
+    Framework: Spring Boot (Web, Data JPA, Validation). ✅
+    API: REST, con respuestas en JSON y códigos HTTP apropiados. ✅
     Persistencia: MySQL de forma obligatoria. No se acepta otro motor de base de datos (ni H2, ni PostgreSQL,
-   etc.).
-    Build: Maven.
-    Control de versiones: Git, con commits que reflejen el avance (evitar un único commit final).
-    Paginación: obligatoria en todos los listados (clientes, artículos y ventas).
-    Seguridad: Spring Security + JWT para autenticar y proteger los endpoints de la API.
-5. Arquitectura y buenas prácticas esperadas
+   etc.). ✅
+    Build: Maven. ✅
+    Control de versiones: Git, con commits que reflejen el avance (evitar un único commit final). ✅
+    Paginación: obligatoria en todos los listados (clientes, artículos y ventas). ✅
+    Seguridad: Spring Security + JWT para autenticar y proteger los endpoints de la API. ✅
+5. Arquitectura y buenas prácticas esperadas ✅
     Separación clara en capas: controller / service / repository (y DTOs para no exponer las entidades
-   directamente en la API).
+   directamente en la API). ✅
     Validaciones de entrada (Bean Validation) y manejo centralizado de errores, con respuestas de error
-   consistentes.
-    Nombres y estructura de paquetes claros; código legible por sobre código &quot;ingenioso&quot;.
-    Manejo apropiado de transacciones donde corresponda (por ejemplo, al registrar una venta y descontar stock).
+   consistentes. ✅
+    Nombres y estructura de paquetes claros; código legible por sobre código &quot;ingenioso&quot;. ✅
+    Manejo apropiado de transacciones donde corresponda (por ejemplo, al registrar una venta y descontar stock). ✅
 6. Testing
 
  Pruebas unitarias con JUnit (+ Mockito) sobre la lógica de negocio, en particular el cálculo de totales y la
@@ -104,15 +104,15 @@ validación de stock.
 
 Diseño de API REST Uso correcto de verbos y códigos HTTP, rutas coherentes, formato de
 
-request/response, manejo de errores.
+request/response, manejo de errores. ✅
 
-Modelado de datos Entidades y relaciones bien definidas (Cliente, Artículo, Venta, DetalleVenta),
+Modelado de datos Entidades y relaciones bien definidas (Cliente, Artículo, Venta, DetalleVenta), 
 
-integridad y consistencia.
+integridad y consistencia. ✅
 
 Arquitectura y buenas prácticas Separación en capas, uso de DTOs, legibilidad, principios SOLID, manejo
 
-centralizado de excepciones.
+centralizado de excepciones. ✅
 
 Testing Cobertura razonable de pruebas unitarias, especialmente en la capa de
 
