@@ -10,7 +10,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 public class LoginResponseDTO {
-
     private String token;
     @Builder.Default
     private String tipo = "Bearer";
