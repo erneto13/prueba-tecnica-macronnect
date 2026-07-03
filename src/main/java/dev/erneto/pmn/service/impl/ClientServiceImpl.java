@@ -29,21 +29,26 @@ public class ClientServiceImpl implements ClienteService {
 
     @Override
     public ClienteResponseDTO actualizar(Long id, ClienteRequestDTO dto) {
-        return null;
+        Cliente cliente = clienteRepository.findById(id).orElseThrow();
+        clienteMapper.updateEntity(cliente, dto);
+        return clienteMapper.toResponse(clienteRepository.save(cliente));
     }
 
     @Override
     public void eliminar(Long id) {
-
+        Cliente cliente = clienteRepository.findById(id).orElseThrow();
+        cliente.setActivo(false);
+        clienteRepository.save(cliente);
     }
 
     @Override
     public ClienteResponseDTO buscarPorId(Long id) {
-        return null;
+        Cliente cliente = clienteRepository.findById(id).orElseThrow();
+        return clienteMapper.toResponse(cliente);
     }
 
     @Override
     public Page<ClienteResponseDTO> paginar(Pageable pageable) {
-        return null;
+        return clienteRepository.findAll(pageable).map(clienteMapper::toResponse);
     }
 }
