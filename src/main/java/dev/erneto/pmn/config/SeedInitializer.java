@@ -18,7 +18,7 @@ public class SeedInitializer implements CommandLineRunner {
     public void run(String... args) throws Exception {
         if (usuarioRepository.count() == 0) {
             Usuario usuario = Usuario.builder()
-                    .usuario("chabelo")
+                    .username("chabelo")
                     .password(passwordEncoder.encode("pepe"))
                     .build();
             usuarioRepository.save(usuario);
