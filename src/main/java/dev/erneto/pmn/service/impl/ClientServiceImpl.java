@@ -6,6 +6,7 @@ import dev.erneto.pmn.mapper.ClienteMapper;
 import dev.erneto.pmn.model.Cliente;
 import dev.erneto.pmn.repository.ClienteRepository;
 import dev.erneto.pmn.service.ClienteService;
+import dev.erneto.pmn.util.ResourceNotFoundException;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -29,21 +30,21 @@ public class ClientServiceImpl implements ClienteService {
 
     @Override
     public ClienteResponseDTO actualizar(Long id, ClienteRequestDTO dto) {
-        Cliente cliente = clienteRepository.findById(id).orElseThrow();
+        Cliente cliente = clienteRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Cliente no encontrado con ID: " + id));
         clienteMapper.updateEntity(cliente, dto);
         return clienteMapper.toResponse(clienteRepository.save(cliente));
     }
 
     @Override
     public void eliminar(Long id) {
-        Cliente cliente = clienteRepository.findById(id).orElseThrow();
+        Cliente cliente = clienteRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Cliente no encontrado con ID: " + id));
         cliente.setActivo(false);
         clienteRepository.save(cliente);
     }
 
     @Override
     public ClienteResponseDTO buscarPorId(Long id) {
-        Cliente cliente = clienteRepository.findById(id).orElseThrow();
+        Cliente cliente = clienteRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Cliente no encontrado con ID: " + id));
         return clienteMapper.toResponse(cliente);
     }
 
