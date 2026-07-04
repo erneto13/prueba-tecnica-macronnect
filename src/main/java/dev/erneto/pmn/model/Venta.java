@@ -39,6 +39,7 @@ public class Venta {
     private BigDecimal total;
 
     @OneToMany(mappedBy = "venta", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    @Builder.Default
     private List<DetalleVenta> detalles = new ArrayList<>();
 
     public void addDetalle(DetalleVenta detalle) {
