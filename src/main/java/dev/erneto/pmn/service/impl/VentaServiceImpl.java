@@ -98,7 +98,7 @@ public class VentaServiceImpl implements VentaService {
     public VentaResponseDTO cancelar(Long id) {
         Venta venta = buscarPorId(id);
 
-        if (venta.getEstado() == "CANCELADO") {
+        if (venta.getEstado().equals("CANCELADO")) {
             throw new BusinessException("La venta con folio " + venta.getFolio() + " ya se encuentra cancelada");
         }
 
