@@ -30,28 +30,28 @@ Nivel: Junior · Modalidad: proyecto a resolver en casa
    Nota: el modelo de datos que sigue es una sugerencia de punto de partida. Puedes ajustarlo si tu diseño lo
    justifica; lo importante es que quede documentado el por qué.
 
-Entidad Campos sugeridos Notas
-Cliente id, nombre, email, teléfono, dirección Validar formato de email.
-Artículo id, código, nombre, descripción, precio,
+Entidad Campos sugeridos Notas ✅
+Cliente id, nombre, email, teléfono, dirección Validar formato de email. ✅
+Artículo id, código, nombre, descripción, precio,✅
 
 stock
 
 El precio y el stock no pueden ser negativos. El
-código no se puede repetir (único). 
+código no se puede repetir (único). ✅
 
-Venta id, folio, fecha, cliente, estado, total, detalle
+Venta id, folio, fecha, cliente, estado, total, detalle✅
 
 (líneas)
 
 El folio es incremental y no se puede repetir
 (único). Estado: activo o cancelado. El total se
-calcula a partir de las líneas de detalle.
+calcula a partir de las líneas de detalle.✅
 
-Detalle de Venta id, venta, artículo, cantidad, precio unitario,
+Detalle de Venta id, venta, artículo, cantidad, precio unitario,✅
 
 subtotal
 
-Una venta tiene una o más líneas de detalle.
+Una venta tiene una o más líneas de detalle.✅
 
 3.4 Autenticación
  La API debe estar protegida con autenticación basada en JWT. ✅
@@ -78,18 +78,18 @@ no hace falta un CRUD de usuarios. ✅
    consistentes. ✅
     Nombres y estructura de paquetes claros; código legible por sobre código &quot;ingenioso&quot;. ✅
     Manejo apropiado de transacciones donde corresponda (por ejemplo, al registrar una venta y descontar stock). ✅
-6. Testing
+6. Testing✅
 
  Pruebas unitarias con JUnit (+ Mockito) sobre la lógica de negocio, en particular el cálculo de totales y la
-validación de stock. ⏳
- Las pruebas de integración sobre los controllers son un plus, no obligatorias para este nivel. ⏳
+validación de stock. ✅
+ Las pruebas de integración sobre los controllers son un plus, no obligatorias para este nivel. ✅
 7. Entregables
     Repositorio Git público (GitHub, GitLab o Bitbucket) o un .zip del proyecto. ✅
     README con: instrucciones para levantar el proyecto y correr los tests, decisiones de diseño relevantes, y
    qué harías distinto si tuvieras más tiempo. ⏳
     Opcional: colección de Postman o archivo .http con ejemplos de uso de los endpoints. ✅
 8. Extras opcionales (suman puntos, no son obligatorios)
-    Documentación de la API con Swagger / OpenAPI. ⏳
+    Documentación de la API con Swagger / OpenAPI. ✅
     Filtros adicionales en los listados (por ejemplo, ventas por cliente o por rango de fechas). ⏳
     Dockerfile o docker-compose para levantar la app y la base de datos. ⏳
     Manejo de una entidad adicional simple si aporta al modelo (por ejemplo, categoría de artículo). ⏳
